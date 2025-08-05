@@ -89,7 +89,7 @@ const ContactCard = () => {
                   fontSize: '3.5rem',
                   fontWeight: 900,
                   lineHeight: 1.4,
-                  [theme.breakpoints.down('md')]: { fontSize: '1.8125rem', marginTop: '80px' }
+                  [theme.breakpoints.down('md')]: { fontSize: '1.8125rem', marginTop: '' }
                 }}
               >
                 Talk to our account expert

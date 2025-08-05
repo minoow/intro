@@ -10,6 +10,17 @@ const cod = '/assets/images/e-commerce/cod.png';
 
 const PaymentOptions: PaymentOptionsProps[] = [
   {
+    id: 0,
+    value: 'virtual-account',
+    title: 'Pay with Virtual Account',
+    caption: '',
+    image: '',
+    size: {
+      width: 16,
+      height: 16
+    }
+  },
+  {
     id: 1,
     value: 'paypal',
     title: 'Pay with PayPal',

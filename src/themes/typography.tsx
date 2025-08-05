@@ -89,7 +89,7 @@ const Typography = (theme: Theme, borderRadius: number, fontFamily: string): Typ
     minHeight: 'calc(100vh - 88px)',
     flexGrow: 1,
     padding: '20px',
-    marginTop: '88px',
+    marginTop: '0px',
     marginRight: '20px',
     borderRadius: `${borderRadius}px`
   },

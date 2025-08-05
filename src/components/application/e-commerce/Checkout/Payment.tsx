@@ -42,6 +42,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { CartCheckoutStateProps } from 'types/cart';
 import { PaymentOptionsProps } from 'types/e-commerce';
 import { setPaymentCard, setPaymentMethod } from 'store/slices/cart';
+import AddVirtualAcountCard from './AddVirtualAcountCard';
 
 const prodImage = '/assets/images/e-commerce';
 
@@ -102,22 +103,7 @@ const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProp
   };
 
   const completeHandler = () => {
-    if (payment === 'card' && (cards === '' || cards === null)) {
-      dispatch(
-        openSnackbar({
-          open: true,
-          message: 'Select Payment Card',
-          variant: 'alert',
-          alert: {
-            color: 'error'
-          },
-          close: false
-        })
-      );
-    } else {
-      onNext();
-      setComplete(true);
-    }
+    setComplete(true);
   };
 
   return (
@@ -199,6 +185,9 @@ const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProp
               </RadioGroup>
             </FormControl>
           </Grid>
+
+          {payment === 'virtual-account' && <AddVirtualAcountCard open={open} handleClose={handleClose} />}
+
           <Grid item xs={12} lg={6} sx={{ opacity: payment === 'card' ? 1 : 0.4 }}>
             <SubCard
               title="Add Your Card"
@@ -230,7 +219,7 @@ const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProp
                 <Button variant="contained" onClick={completeHandler}>
                   Complete Order
                 </Button>
-                <OrderComplete open={complete} />
+                <OrderComplete open={complete} checkout={checkout} />
               </Grid>
             </Grid>
           </Grid>

@@ -92,11 +92,10 @@ const MainLayout: FC = ({ children }) => {
   );
 
   return (
-    <AuthGuard>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        {/* header */}
-        <AppBar
+    <Box sx={{ display: 'flex' }}>
+      {/* <CssBaseline /> */}
+      {/* header */}
+      {/* <AppBar
           enableColorOnDark
           position="fixed"
           color="inherit"
@@ -107,30 +106,29 @@ const MainLayout: FC = ({ children }) => {
           }}
         >
           {header}
-        </AppBar>
+        </AppBar> */}
 
-        {/* drawer */}
-        <Sidebar />
+      {/* drawer */}
+      {/* <Sidebar /> */}
 
-        {/* main content */}
-        <Main theme={theme} open={drawerOpen}>
-          {/* breadcrumb */}
-          {container && (
-            <Container maxWidth="lg">
-              <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign />
-              {children}
-            </Container>
-          )}
-          {!container && (
-            <>
-              <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign />
-              {children}
-            </>
-          )}
-        </Main>
-        <Customization />
-      </Box>
-    </AuthGuard>
+      {/* main content */}
+      <Main theme={theme} open={drawerOpen}>
+        {/* breadcrumb */}
+        {container && (
+          <Container maxWidth="lg">
+            <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign />
+            {children}
+          </Container>
+        )}
+        {!container && (
+          <>
+            <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign />
+            {children}
+          </>
+        )}
+      </Main>
+      {/* <Customization /> */}
+    </Box>
   );
 };
 

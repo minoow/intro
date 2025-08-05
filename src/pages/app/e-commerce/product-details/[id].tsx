@@ -124,15 +124,8 @@ const ProductDetails = () => {
           )}
         </MainCard>
       </Grid>
-      <Grid item xs={12} lg={10} sx={{ mt: 3 }}>
-        <Typography variant="h2">Related Products</Typography>
-      </Grid>
-      <Grid item xs={11} lg={10}>
-        <RelatedProducts id={router.query.id?.toString()} />
-      </Grid>
-      <FloatingCart />
     </Grid>
   );
 };
-ProductDetails.Layout = 'authGuard';
+
 export default ProductDetails;

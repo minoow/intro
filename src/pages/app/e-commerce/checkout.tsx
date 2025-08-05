@@ -111,7 +111,7 @@ const Checkout = () => {
 
   const isCart = cart.checkout.products && cart.checkout.products.length > 0;
 
-  const [value, setValue] = useState(cart.checkout.step > 2 ? 2 : cart.checkout.step);
+  const [value, setValue] = useState(0);
   const [billing, setBilling] = useState(cart.checkout.billing);
   const [address, setAddress] = useState<Address[]>([]);
   const { addresses } = useSelector((state) => state.product);
@@ -139,7 +139,8 @@ const Checkout = () => {
   };
 
   useEffect(() => {
-    setValue(cart.checkout.step > 2 ? 2 : cart.checkout.step);
+    console.log(cart.checkout.step);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart.checkout.step]);
 
@@ -163,6 +164,7 @@ const Checkout = () => {
   };
 
   const onNext = () => {
+    setValue(value + 1);
     dispatch(setNextStep());
   };
 
@@ -257,6 +259,7 @@ const Checkout = () => {
             {isCart && <Cart checkout={cart.checkout} onNext={onNext} removeProduct={removeCartProduct} updateQuantity={updateQuantity} />}
             {!isCart && <CartEmpty />}
           </TabPanel>
+
           <TabPanel value={value} index={1}>
             <BillingAddress
               checkout={cart.checkout}

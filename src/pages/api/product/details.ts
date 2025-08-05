@@ -7,7 +7,7 @@ const products: Products[] = [
   {
     id: 1,
     image: 'prod-1.jpg',
-    name: chance.name(),
+    name: 'H100',
     description: chance.paragraph({ sentences: 2 }),
     rating: chance.floating({ min: 0.1, max: 5.0 }),
     discount: 25,
@@ -21,23 +21,7 @@ const products: Products[] = [
     created: sub(new Date(), { days: 8, hours: 6, minutes: 20 }),
     isStock: true
   },
-  {
-    id: 2,
-    image: 'prod-2.jpg',
-    name: chance.name(),
-    description: chance.paragraph({ sentences: 2 }),
-    rating: chance.floating({ min: 0.1, max: 5.0 }),
-    discount: 10,
-    salePrice: 89.99,
-    offerPrice: 81.99,
-    gender: 'kids',
-    categories: ['fashion', 'toys'],
-    colors: ['primary200', 'successLight', 'secondary200', 'warningMain'],
-    popularity: chance.natural(),
-    date: chance.natural(),
-    created: sub(new Date(), { days: 10, hours: 8, minutes: 69 }),
-    isStock: false
-  },
+
   {
     id: 3,
     image: 'prod-3.jpg',
@@ -57,8 +41,8 @@ const products: Products[] = [
   },
   {
     id: 4,
-    image: 'prod-4.jpg',
-    name: chance.name(),
+    image: 'prod-1.jpg',
+    name: 'Mens T-Shirts',
     description: chance.paragraph({ sentences: 2 }),
     rating: chance.floating({ min: 0.1, max: 5.0 }),
     discount: 17,

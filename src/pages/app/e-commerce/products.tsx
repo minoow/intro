@@ -348,7 +348,7 @@ const ProductsList = () => {
                 : productResult}
             </Grid>
           </Main>
-          <Drawer
+          {/* <Drawer
             sx={{
               ml: open ? 3 : 0,
               height: matchDownLG ? '100vh' : 'auto',
@@ -375,10 +375,10 @@ const ProductsList = () => {
                 <ProductFilter filter={filter} handelFilter={handelFilter} />
               </PerfectScrollbar>
             )}
-          </Drawer>
+          </Drawer> */}
         </Box>
       </Grid>
-      <FloatingCart />
+      {/* <FloatingCart /> */}
     </Grid>
   );
 };

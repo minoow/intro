@@ -75,7 +75,7 @@ const ProductImages = ({ product }: { product: Products }) => {
             />
           </MainCard>
         </Grid>
-        <Grid item xs={11} sm={7} md={9} lg={10} xl={8}>
+        {/* <Grid item xs={11} sm={7} md={9} lg={10} xl={8}>
           <Slider {...settings}>
             {products.map((item, index) => (
               <Box key={index} onClick={() => setSelected(item)} sx={{ p: 1 }}>
@@ -90,7 +90,7 @@ const ProductImages = ({ product }: { product: Products }) => {
               </Box>
             ))}
           </Slider>
-        </Grid>
+        </Grid> */}
       </Grid>
       <ModalGateway>
         {modal ? (

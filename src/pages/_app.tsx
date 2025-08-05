@@ -45,11 +45,6 @@ function MyApp({ Component, pageProps }: AppProps & { Component: { Layout: Layou
 
   return (
     <>
-      <Head>
-        <title>Berry - React Material Admin Dashboard Template</title>
-        <link rel="icon" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persister}>
           <ConfigProvider>
