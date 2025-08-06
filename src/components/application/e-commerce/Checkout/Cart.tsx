@@ -224,7 +224,6 @@ const Cart = ({ checkout, onNext, removeProduct, updateQuantity }: CartProps) =>
           </Grid>
           <Grid item xs={12} md={5} lg={4}>
             <Stack spacing={gridSpacing}>
-              <CartDiscount />
               <Button variant="contained" fullWidth onClick={onNext}>
                 Check Out
               </Button>

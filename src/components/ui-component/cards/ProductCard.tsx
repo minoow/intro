@@ -114,9 +114,6 @@ const ProductCard = ({ id, color, name, image, description, offerPrice, salePric
                       </Typography>
                     </Grid>
                   </Grid>
-                  <Button variant="contained" sx={{ minWidth: 0 }} onClick={addCart}>
-                    <ShoppingCartTwoToneIcon fontSize="small" />
-                  </Button>
                 </Stack>
               </Grid>
             </Grid>

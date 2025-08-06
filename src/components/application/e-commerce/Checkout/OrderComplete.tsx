@@ -17,6 +17,7 @@ import { Chance } from 'chance';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { CartCheckoutStateProps } from 'types/cart';
 import CurrencyFormat from 'react-currency-format';
+import { useRouter } from 'next/router';
 const completed = '/assets/images/e-commerce/completed.png';
 
 const chance = new Chance();
@@ -26,6 +27,8 @@ const Transition = forwardRef((props: ZoomProps, ref) => <Zoom ref={ref} {...pro
 // ==============================|| CHECKOUT CART - DISCOUNT COUPON CODE ||============================== //
 
 const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartCheckoutStateProps }) => {
+  const router = useRouter();
+
   const theme = useTheme();
   const matchDownMD = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -174,7 +177,7 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
                     }}
                   >
                     <strong>Account number:</strong>
-                    <b>{account}</b>
+                    <b>16909074013383</b>
                   </div>
 
                   <div
@@ -209,7 +212,7 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
                     Please process the payment from the official <b>{bank || 'your bank'} app</b>.
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Make sure to enter the correct account number.
+                    using account number {account}
                   </Typography>
                 </Stack>
               </Box>
@@ -259,7 +262,13 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
                 justifyContent="space-between"
               >
                 <Grid item>
-                  <Button component={Link} href="/app/e-commerce/products" variant="contained" fullWidth>
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    onClick={() => {
+                      router.push('/app/e-commerce/products');
+                    }}
+                  >
                     completed
                   </Button>
                 </Grid>

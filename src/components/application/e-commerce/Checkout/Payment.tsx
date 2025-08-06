@@ -43,6 +43,7 @@ import { CartCheckoutStateProps } from 'types/cart';
 import { PaymentOptionsProps } from 'types/e-commerce';
 import { setPaymentCard, setPaymentMethod } from 'store/slices/cart';
 import AddVirtualAcountCard from './AddVirtualAcountCard';
+import { useRouter } from 'next/router';
 
 const prodImage = '/assets/images/e-commerce';
 
@@ -62,9 +63,8 @@ interface PaymentProps {
 
 const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProps) => {
   const dispatch = useDispatch();
-
   const [type, setType] = useState(checkout.payment.type);
-  const [payment, setPayment] = useState(checkout.payment.method);
+  const [payment, setPayment] = useState('virtual-account');
   const [rows, setRows] = useState(checkout.products);
   const [cards, setCards] = useState(checkout.payment.card);
 
