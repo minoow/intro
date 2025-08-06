@@ -31,7 +31,7 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
 
   const [step, setStep] = useState(0);
 
-  const [bank, setBank] = useState();
+  const [bank, setBank] = useState('');
 
   const [account, setAccount] = useState('');
 
