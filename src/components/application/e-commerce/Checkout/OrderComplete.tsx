@@ -37,11 +37,22 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
   const [bank, setBank] = useState('');
 
   const [account, setAccount] = useState('');
-
   const cities = [
     {
       value: 'HANA',
       label: 'HANA'
+    },
+    {
+      value: 'IBK',
+      label: 'IBK'
+    },
+    {
+      value: 'SHINHAN',
+      label: 'SHINHAN'
+    },
+    {
+      value: 'KOOKMIN',
+      label: 'KOOKMIN'
     }
   ];
 
