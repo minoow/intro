@@ -31,7 +31,7 @@ const OrderSummary = ({ checkout }: { checkout: CartCheckoutStateProps }) => (
                   value={checkout.subtotal}
                   displayType="text"
                   thousandSeparator
-                  prefix="$"
+                  prefix="₩"
                 />
               </Typography>
             </TableCell>
@@ -49,7 +49,7 @@ const OrderSummary = ({ checkout }: { checkout: CartCheckoutStateProps }) => (
                     value={checkout.discount}
                     displayType="text"
                     thousandSeparator
-                    prefix="- $"
+                    prefix="- ₩"
                   />
                 )}
               </Typography>
@@ -68,7 +68,7 @@ const OrderSummary = ({ checkout }: { checkout: CartCheckoutStateProps }) => (
                     value={checkout.shipping}
                     displayType="text"
                     thousandSeparator
-                    prefix="+ $"
+                    prefix="+ ₩"
                   />
                 )}
               </Typography>
@@ -80,7 +80,7 @@ const OrderSummary = ({ checkout }: { checkout: CartCheckoutStateProps }) => (
             </TableCell>
             <TableCell align="right" sx={{ borderBottom: 'none' }}>
               <Typography variant="subtitle1">
-                <CurrencyFormat decimalScale={2} fixedDecimalScale value={checkout.total} displayType="text" thousandSeparator prefix="$" />
+                <CurrencyFormat decimalScale={2} fixedDecimalScale value={checkout.total} displayType="text" thousandSeparator prefix="₩" />
               </Typography>
             </TableCell>
           </TableRow>

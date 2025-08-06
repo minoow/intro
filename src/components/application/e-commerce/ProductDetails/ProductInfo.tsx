@@ -207,10 +207,10 @@ const ProductInfo = ({ product }: { product: Products }) => {
       <Grid item xs={12}>
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="h2" color="primary">
-            ${product.offerPrice}
+            ₩{product.offerPrice}
           </Typography>
           <Typography variant="body1" sx={{ textDecoration: 'line-through' }}>
-            ${product.salePrice}
+            ₩{product.salePrice}
           </Typography>
           <Typography variant="caption">(Inclusive of all taxes)</Typography>
         </Stack>

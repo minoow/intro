@@ -63,7 +63,7 @@ const products: Products[] = [
     rating: chance.floating({ min: 0.1, max: 5.0 }),
     discount: 17,
     salePrice: 36.0,
-    offerPrice: 29.99,
+    offerPrice: 1,
     gender: 'kids',
     categories: ['fashion', 'electronics', 'toys'],
     colors: ['errorLight', 'orangeMain', 'warningMain'],

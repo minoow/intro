@@ -16,6 +16,7 @@ import { Chance } from 'chance';
 // assets
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { CartCheckoutStateProps } from 'types/cart';
+import CurrencyFormat from 'react-currency-format';
 const completed = '/assets/images/e-commerce/completed.png';
 
 const chance = new Chance();
@@ -30,14 +31,14 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
 
   const [step, setStep] = useState(0);
 
-  const [bank, setBank] = useState('');
+  const [bank, setBank] = useState();
 
   const [account, setAccount] = useState('');
 
   const cities = [
     {
-      value: 'KB',
-      label: 'KB Kookmin'
+      value: 'HANA',
+      label: 'HANA'
     }
   ];
 
@@ -58,31 +59,67 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
       {open && step === 0 && (
         <MainCard>
           <Grid container direction="column" spacing={gridSpacing} alignItems="center" justifyContent="center" sx={{ py: 4, px: 2 }}>
-            {/* 타이틀 문구 */}
+            {/* 안내 문구 */}
             <Grid item>
               <Stack alignItems="center" spacing={1}>
-                <Typography align="center" variant="h5" sx={{ color: 'text.secondary' }}>
-                  To issue a Virtual Account, please provide the depositor’s bank account information.
+                <Typography align="center" variant="h5" sx={{ color: 'text.primary', fontWeight: 600 }}>
+                  Please enter your bank account information
                 </Typography>
-                <Typography align="center" variant="h5" sx={{ color: 'text.secondary' }}>
-                  Please note that deposits will only be accepted from the registered account.
+                <Typography align="center" variant="body1" sx={{ color: 'text.secondary' }}>
+                  Virtual account deposits are only accepted from the registered account.
+                </Typography>
+                <Typography align="center" variant="body2" sx={{ color: 'text.disabled' }}>
+                  ※ Make sure to enter your own account information accurately.
                 </Typography>
               </Stack>
             </Grid>
 
-            {/* 입력폼 */}
-            <Grid item xs={12} sx={{ mt: 3, width: { xs: '90%', sm: '70%', md: '50%' } }}>
+            {/* 입력 폼 */}
+            <Grid item xs={12} sx={{ mt: 4, width: '80%' }}>
               <Stack spacing={2}>
-                <TextField fullWidth label="Account number" value={account} onChange={(e) => setAccount(e.target.value)} />
-                <TextField select label="Bank" value={bank} fullWidth onChange={(e) => setBank(e.target.value)}>
-                  {cities.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-                <TextField fullWidth label="Account holder's name" />
-                <TextField fullWidth label="Date of birth" />
+                {/* 계좌번호 */}
+                <Box display="flex" alignItems="center">
+                  <Box minWidth="100px">
+                    <Typography>Account number</Typography>
+                  </Box>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    placeholder="Numbers only"
+                    value={account}
+                    onChange={(e) => setAccount(e.target.value)}
+                  />
+                </Box>
+
+                {/* 은행 선택 */}
+                <Box display="flex" alignItems="center">
+                  <Box minWidth="160px">
+                    <Typography>Select bank</Typography>
+                  </Box>
+                  <TextField fullWidth size="small" select value={bank} onChange={(e) => setBank(e.target.value)}>
+                    {cities.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Box>
+
+                {/* 예금주 */}
+                <Box display="flex" alignItems="center">
+                  <Box minWidth="160px">
+                    <Typography>Account holder's name</Typography>
+                  </Box>
+                  <TextField fullWidth size="small" />
+                </Box>
+
+                {/* 생년월일 */}
+                <Box display="flex" alignItems="center">
+                  <Box minWidth="160px">
+                    <Typography>Date of birth (YYMMDD)</Typography>
+                  </Box>
+                  <TextField fullWidth size="small" placeholder="e.g. 900101" />
+                </Box>
               </Stack>
             </Grid>
 
@@ -93,8 +130,8 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
 
             {/* 버튼 */}
             <Grid item xs={12} sx={{ mt: 3 }}>
-              <Button variant="contained" size="large" onClick={() => setStep(1)}>
-                Next
+              <Button variant="contained" size="large" onClick={() => setStep(1)} disabled={!bank || !account}>
+                Proceed to Next Step
               </Button>
             </Grid>
           </Grid>
@@ -115,18 +152,41 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
                 }}
               >
                 <Stack spacing={2}>
-                  <Typography variant="h5" color="text.primary">
-                    Transfer <b>{checkout.total.toLocaleString()}₩</b> to:
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    <strong>Account number:</strong> {account || '123456789'}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    <strong>Bank:</strong> {bank || 'KB Kookmin'}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary" style={{ opacity: 0, height: 0 }}>
-                    awefwaefawefwafwafwfewfwefwewfwefwefwef
-                  </Typography>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px'
+                    }}
+                  >
+                    <Typography variant="h5" color="text.primary">
+                      Transfer
+                    </Typography>
+                    <Typography variant="subtitle1">
+                      <b>{checkout.subtotal}</b> KRW
+                    </Typography>
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px'
+                    }}
+                  >
+                    <strong>Account number:</strong>
+                    <b>{account}</b>
+                  </div>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px'
+                    }}
+                  >
+                    <strong>Bank:</strong>
+                    <b> {bank}</b>
+                  </div>
                 </Stack>
               </Box>
             </Grid>

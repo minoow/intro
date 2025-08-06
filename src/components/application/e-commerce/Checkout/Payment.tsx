@@ -81,7 +81,7 @@ const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProp
 
   useEffect(() => {
     if (checkout.step > 2) {
-      setComplete(true);
+      // setComplete(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -142,23 +142,7 @@ const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProp
                         </Box>
                       </SubCard>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={12} lg={6}>
-                      <SubCard content={false}>
-                        <Box sx={{ p: 2 }}>
-                          <FormControlLabel
-                            value="fast"
-                            control={<Radio />}
-                            label={
-                              <Stack spacing={0.25}>
-                                <Typography variant="subtitle1">Fast Delivery ($5.00)</Typography>
-                                <Typography variant="caption">Delivered on Friday 5 Jun</Typography>
-                              </Stack>
-                            }
-                            sx={{ '& .MuiSvgIcon-root': { fontSize: 32 } }}
-                          />
-                        </Box>
-                      </SubCard>
-                    </Grid>
+                    <Grid item xs={12} sm={6} md={12} lg={6}></Grid>
                   </Grid>
                 </RadioGroup>
               </FormControl>
@@ -276,7 +260,7 @@ const Payment = ({ checkout, onBack, onNext, handleShippingCharge }: PaymentProp
                                 value={row.offerPrice * row.quantity}
                                 displayType="text"
                                 thousandSeparator
-                                prefix="$"
+                                prefix="₩"
                               />
                             </Typography>
                           </TableCell>

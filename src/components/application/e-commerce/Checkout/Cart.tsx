@@ -170,7 +170,7 @@ const Cart = ({ checkout, onNext, removeProduct, updateQuantity }: CartProps) =>
                             value={row.offerPrice}
                             displayType="text"
                             thousandSeparator
-                            prefix="$"
+                            prefix="₩"
                           />
                         </Typography>
                         <Typography variant="caption" sx={{ textDecoration: 'line-through' }}>
@@ -180,7 +180,7 @@ const Cart = ({ checkout, onNext, removeProduct, updateQuantity }: CartProps) =>
                             value={row.salePrice}
                             displayType="text"
                             thousandSeparator
-                            prefix="$"
+                            prefix="₩"
                           />
                         </Typography>
                       </Stack>
@@ -196,7 +196,7 @@ const Cart = ({ checkout, onNext, removeProduct, updateQuantity }: CartProps) =>
                           value={row.offerPrice * row.quantity}
                           displayType="text"
                           thousandSeparator
-                          prefix="$"
+                          prefix="₩"
                         />
                       </Typography>
                     </TableCell>
