@@ -108,7 +108,7 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
                 {/* 예금주 */}
                 <Box display="flex" alignItems="center">
                   <Box minWidth="160px">
-                    <Typography>Account holder's name</Typography>
+                    <Typography>Account holder name</Typography>
                   </Box>
                   <TextField fullWidth size="small" />
                 </Box>
