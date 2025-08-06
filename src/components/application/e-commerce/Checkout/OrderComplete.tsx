@@ -199,7 +199,7 @@ const OrderComplete = ({ open, checkout }: { open: boolean; checkout: CartChecko
                     }}
                   >
                     <strong>Bank:</strong>
-                    <b> {bank}</b>
+                    <b> KB Kookmin (KB국민 은행)</b>
                   </div>
                 </Stack>
               </Box>
